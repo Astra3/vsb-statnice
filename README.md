@@ -13,7 +13,7 @@ Tohle repo obsahuje všechny otázky, které jsem já a jiní contributors vypra
 - [ ] Počítačová grafika
 
 ## Teoretické základy informatiky
-- [ ] [Algoritmy](Teoretické základy informatiky/Algoritmy.md)
+- [ ] [Algoritmy](Teoretické%20základy%20informatiky/Algoritmy.md)
 - [ ] Teoretická informatika
 - [ ] Matematika pro informatiku
 
