@@ -57,8 +57,58 @@ Tento dokument obsahuje vypracovanie okruhov k predmetu **Počítačová grafika
 
 
 
+> ##### 8 zlatých pravidiel dobrého UI
 
+> 1. Konzistence:
+- Podobné posloupnosti akcí v podobných situacích
+- Konzistentní terminologie (např. na různých místech menu, menu a nápověda, …)
+- Podobný vzhled oken, stránek, konzistentní 
+používání barev, fontů, grafiky (ikon), …   
+> 2. Informativni zpětná vazba
+- Na každou akci uživatele reagovat zpětnou vazbou 
+signalizující, že se něco děje nebo stalo.
+- Být tak konkrétní, jak je na základě od uživatele 
+získaných informací možné. 
+> 3. Prevence chyb a řešení chybových situací
+- Nedovolte uživateli udělat chybu. Např.: Zakažte 
+položky v menu (tlačítka, …), které by v daném 
+okamžiku neměly být provedeny. Nedovolte psát 
+písmena, když mají vstoupit čísla. Ihned provést 
+možné kontroly správnosti (rozsahy atd.).
+- Když už chyba vznikne, poskytněte uživateli 
+nápovědu, jak ji odstranit.
+> 4. UNDO možnosť
+-  Bez komentáře – prostě vždy a pokud možno na 
+všechno. Realizujte také „redo“.
+> 5. Zkušený uživatel požaduje plnou kontrolu nad produktem
+- Jednoduše: Zkušený uživatel chce mít produkt 
+zcela „přečtený“. Jestliže se mu nepodaří 
+dosáhnout tohoto stavu, produkt se mu nelíbí.
 
+> 6. Připravte produkt také pro zkušené uživatele
+- Důmyslná GUI vyhovují zpravidla spíše uživateli 
+nezkušenému.
+- Zkušeného uživatele komplikované GUI při 
+provádění běžných akcí obvykle zdržuje (např. 
+opakované otvírání víceúrovňových menu pro vy 
+volání příkazu).
+- Zkušený uživatel přivítá: možnost zápisu příkazu 
+(krátká jména příkazů) na příkazový řádek, 
+klávesové zkratky, makra, …
+> 7. Organizujte akce do uzavřených celků
+- Komplikované akce s větším počtem kroků 
+rozdělte na menší celky mající jasný začátek a 
+konec. Po vykonání každého celku zpětná vazba, 
+jak to dopadlo. Také velké formuláře rozdělte na 
+menší (uživatele o tom ale předem informujte).
+> 8. Nepřetěžujte krátkodobou paměť a vizuální systém uživatele
+- Přiměřený počet položek v menu, tlačítek ve 
+skupinách, přehledná a jasná struktura obrazovky 
+(okna, stránky).
+- Nedopusťte chaos na obrazovce. I 
+komplikovanější struktura se ale může stát 
+přijatelnou, jestliže je okno, stránka, obrazovka 
+vnímáno jako pěkné.
 
 
 ---
