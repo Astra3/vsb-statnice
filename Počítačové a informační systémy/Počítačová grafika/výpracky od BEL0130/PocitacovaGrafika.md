@@ -18,26 +18,66 @@ Tento dokument obsahuje vypracovanie okruhov k predmetu **Počítačová grafika
 #### 🔹 Kognitivní schopnosti člověka
 > Jak lidské vnímání, paměť, pozornost a zrakové rozpoznávání ovlivňují návrh rozhraní.
 
-<img src="./images/clovek_a_UI0.jpg" alt="Komunikace s programem" width="800">
+**Komunikace človeka s programem**
+---
+1. vstupni informace
+2. vyhodnoceni informace
+3. stanovení reakce
+4. provedení reakce
 
-- Dobre navrhnuté použivateľské rozhranie skracuje čas reakcie a provedení reakce
+**reakčný čas**
+---
 
-<img src="./images/clovek_a_UI1.jpg" alt="reakci cas" width="800">
-<img src="./images/clovek_a_UI2.jpg" alt="fittuv zakon" width="800">
+- čas potrebný k vyhodnocení reakce 
+- čas potrebný k stanovení reakce
+- čas k vykonáni pohybu
+
+Dobre navrhnuté použivateľské rozhranie skracuje čas reakcie a provedení reakce
+
+
+**fittuv zákon popisuje čas zasažení cíle na obrazovce**
+---
+
+<img src="./images/fittuv_zakon.jpg" alt="fittuv zakon">
+
+T - čas k zasažení \
+a, b - konštanty \
+d - vzdialenosť od cieľa \
+s - veľkosť cieľa 
 
 - dôležitá časť fitovho zákona (d/s) kde d je dĺžka a s je veľkosť cieľa. skrátenie času zasiahnutia cieľa priamo súvisí z rýchlosťou provedení reakce. to znamená **čím väčšie a bližšie pri sebe sú elementy ktoré slúžia na ovládanie rozhrania tým lepšie je uživateľské rozhranie**
 
-<img src="./images/clovek_a_UI3.jpg" alt="vyber z menu" width="800">
+**čas výberu položiek z menu**
+---
+<img src="./images/vyber_poloziek_z_menu.jpg" alt="vyber z menu">
+
+T- čas k výberu \
+k, c - konštaty \
+b - počet položiek 
 
 - výber z menu priamo súvisí z množstvom položiek v menu. čím ma menu menej položiek tým lepšie menu (antipríklad VS menu)
 
-<img src="./images/clovek_a_UI4.jpg" alt="tri typy pamate" width="800">
-<img src="./images/clovek_a_UI5.jpg" alt="kratkodoba pamat" width="800">
-<img src="./images/clovek_a_UI6.jpg" alt="dlhodoba pamat" width="800">
-<img src="./images/clovek_a_UI7.jpg" alt="dlhodoba pamat" width="800">
 
-- Uživateľské rozhranie by malo využívať čo najviac dlhodobú pamäť nadobudnutú z ostatných aplikácií napríklad pohyb v menu pomocou šípiek, odoslanie formulára pomocou enteru, pohyb v 3D pomocou WASD a podobne.. 
 
+**typy pameti**
+---
+<img src="./images/tri_typy_pameti.jpg" alt="tri typy pamate">
+
+
+**krátkodobá pamäť**
+---  
+
+rýchle strata zvyčajne si človek pamätá 7 +- 2 položky
+> nie je vhodne krátkodobú pamäť preťažovať
+
+
+**dlhodobá pamäť**
+---  
+> Uživateľské rozhranie by malo využívať čo najviac dlhodobú pamäť nadobudnutú z ostatných aplikácií napríklad pohyb v menu pomocou šípiek, odoslanie formulára pomocou enteru, pohyb v 3D pomocou WASD a podobne, a čo najmenej meniť ovládanie alebo celkové rozloženie systému.
+
+
+**Gesalt theory**
+---  
 <img src="./images/clovek_a_UI8.jpg" alt="gesalt" width="800">
 <img src="./images/clovek_a_UI9.jpg" alt="gesalt objekt a pozadie" width="800">
 <img src="./images/clovek_a_UI11.jpg" alt="idealizovany tvar" width="800">
@@ -48,27 +88,31 @@ Tento dokument obsahuje vypracovanie okruhov k predmetu **Počítačová grafika
 
 > Gestaltová teorie popisuje, ako človek prirodzene vníma usporiadanie vizuálnych prvkov ako celky namiesto jednotlivostí.  
 > V dizajne používateľského rozhrania sa uplatňuje napríklad v princípoch:
-> - **Objekt a pozadie** – schopnosť oddeliť prvok od pozadia,
-> - **Idealizovaný tvar** – dopĺňanie neúplných obrazcov do známych tvarov,
-> - **Blízkosť a vytváranie skupín** – zhlukovanie súvisiacich prvkov,
-> - **Kontinuita** – vnímanie plynulých línií a usporiadania,
-> - **Symetria** – rozpoznanie vyvážených, harmonických tvarov,
-> - **Vnímanie na základe skúsenosti** – rýchla orientácia v známom prostredí.
+
+- **Objekt a pozadie** – schopnosť oddeliť prvok od pozadia,
+- **Idealizovaný tvar** – dopĺňanie neúplných obrazcov do známych tvarov,
+- **Blízkosť a vytváranie skupín** – zhlukovanie súvisiacich prvkov,
+- **Kontinuita** – vnímanie plynulých línií a usporiadania,
+- **Symetria** – rozpoznanie vyvážených, harmonických tvarov,
+- **Vnímanie na základe skúsenosti** – rýchla orientácia v známom prostredí.
 
 
 
-> ##### 8 zlatých pravidiel dobrého UI
+**8 zlatých pravidiel dobrého UI**
+---
 
 > 1. Konzistence:
 - Podobné posloupnosti akcí v podobných situacích
 - Konzistentní terminologie (např. na různých místech menu, menu a nápověda, …)
 - Podobný vzhled oken, stránek, konzistentní 
-používání barev, fontů, grafiky (ikon), …   
+používání barev, fontů, grafiky (ikon), … 
+
 > 2. Informativni zpětná vazba
 - Na každou akci uživatele reagovat zpětnou vazbou 
 signalizující, že se něco děje nebo stalo.
 - Být tak konkrétní, jak je na základě od uživatele 
 získaných informací možné. 
+
 > 3. Prevence chyb a řešení chybových situací
 - Nedovolte uživateli udělat chybu. Např.: Zakažte 
 položky v menu (tlačítka, …), které by v daném 
@@ -77,9 +121,11 @@ písmena, když mají vstoupit čísla. Ihned provést
 možné kontroly správnosti (rozsahy atd.).
 - Když už chyba vznikne, poskytněte uživateli 
 nápovědu, jak ji odstranit.
+
 > 4. UNDO možnosť
 -  Bez komentáře – prostě vždy a pokud možno na 
 všechno. Realizujte také „redo“.
+
 > 5. Zkušený uživatel požaduje plnou kontrolu nad produktem
 - Jednoduše: Zkušený uživatel chce mít produkt 
 zcela „přečtený“. Jestliže se mu nepodaří 
@@ -95,12 +141,14 @@ volání příkazu).
 - Zkušený uživatel přivítá: možnost zápisu příkazu 
 (krátká jména příkazů) na příkazový řádek, 
 klávesové zkratky, makra, …
+
 > 7. Organizujte akce do uzavřených celků
 - Komplikované akce s větším počtem kroků 
 rozdělte na menší celky mající jasný začátek a 
 konec. Po vykonání každého celku zpětná vazba, 
 jak to dopadlo. Také velké formuláře rozdělte na 
 menší (uživatele o tom ale předem informujte).
+
 > 8. Nepřetěžujte krátkodobou paměť a vizuální systém uživatele
 - Přiměřený počet položek v menu, tlačítek ve 
 skupinách, přehledná a jasná struktura obrazovky 
