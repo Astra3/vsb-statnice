@@ -162,8 +162,35 @@ vnímáno jako pěkné.
 ---
 
 #### 🔹 Mentální modely
-> Jak lidé rozumí systému, na základě jejich předchozích zkušeností.
+>človek hľadá vo všetkom systém a postúpnosť aby si uľahčil premýšlanie.
 
+<img src="./images/mentalni_model_okna.jpg" alt="vnimanie na zaklade skusenosti">
+
+**mentálne modely formujú realitu do skupín pre jednoduchšie porozumenie systému**
+
+> Když se model podaří nalézt, pak nastupuje:
+- pocit jistoty a ovládnutí produktu,
+- pocit víry, že lze odhadnout chování v nových situacích, 
+- pocit víry, že produkt v nových situacích uspěje. 
+> Když ne, pak pocity opačné
+- nejistoty, frustrace, skepse
+- nejistota, zda pro nové úkoly bude produkt vhodný.
+
+pre dobré uživateľské rozhranie je výhodné mať jednoducho a rýchlo vytvoritelný mentálny model aplikácie. Dá sa využiť už existujúce skúsenosti uživateĺa s mentálnymi modelmi (rozvrhovať rozhranie podľa už existujúceho rozhrania)
+
+tvorba dobrého mentálneho modelu
+- Udělejte inventuru veškeré komunikace vašeho programu 
+s uživatelem. Rozdělte komunikaci na části, které budou tvořit 
+jednotlivá menu, dialogová okna, případně stránky. Obsah oken 
+rozdělte na části (max. přibližně 7) obsahující prvky GUI. Menu 
+a podmenu organizujte tak aby délka zpravidla nebyla větší než 
+max. cca 12 položek.
+-  Pro každé okno, skupinu prvků GUI, menu, podmenu nalezněte 
+maximálně výstižné názvy (To je naprosto zásadní, a to i tehdy, 
+když v GUI některé z nich nakonec nebudou vidět).
+- Nakreslete si schéma řazení menu, oken, stránek na papír 
+(mentální model GUI). Podobně nakreslete i zamýšlené mentální 
+modely jednotlivých oken. 
 
 ---
 
