@@ -208,14 +208,209 @@ vnímáno jako pěkné.
 
 ---
 
-#### 🔹 Barevné prostory
+# 🔹 1.4 Barevné prostory  
+> Využitie farebných priestorov, ich význam v navrhovaní GUI a zásady práce s farbami.
+
+**Základy farebného vnímania**
+---
+- Farba vzniká ako výsledok interakcie svetla rôznych vlnových dĺžok s čapíkmi v sietnici oka.
+- Ľudské oko má 3 typy čapíkov: pre červenú, zelenú a modrú. Najcitlivejšie je na **žltú farbu** (kombinácia červenej a zelenej).
+- Približne **8 % populácie má poruchu farebného videnia**, čo je nutné pri návrhu GUI zohľadniť.
+
+<img src="./images/Human_Color_Sensitivity.jpg" alt="rozdielne zastúpenie čapíkov a tyčiniek" width="400">
+
+**Modely farebných priestorov**
+---
+- **RGB** (Red, Green, Blue) – používa sa pre displeje. Každý pixel má hodnoty R, G a B.
+- **HSV** (Hue – odtieň, Saturation – sýtosť, Value – jas) – intuitívnejší pre výber farby.
+- **CMY(K)** – subtraktívny model používaný pri tlači (cyan, magenta, yellow, black).
+
+---
+<img src="./images/HSV.jpg" alt="farebný kužeľ HSV s kruhom" width="200"> 
+
+HSV kuzel
+
+---
+<img src="./images/HSV2.jpg" alt="HSV rozlozenie" width="200">
+
+HSV
+
+---
+<img src="./images/CMY.jpg" alt="CMY(K) rozlozenie" width="400">
+
+RGB/CMY(K)
+
+---
+
+**Reprezentácia farieb**
+---
+- V GUI systémoch sa často používa zápis pomocou RGB zložiek.
+- **"Web-safe" farby** – historicky obmedzená paleta 216 farieb kompatibilných s 256-farebnými monitormi (dnes málo významné).
+
+**Farebný kontrast**
+---
+- Kľúčový pre čitateľnosť – W3C odporúča:
+  - Jasový rozdiel (brightness): väčší než 125.
+  - Rozdiel zložiek (color difference): väčší než 500.
+
+```plaintext
+Brightness = (299×R + 587×G + 114×B)/1000
+Color Difference = ∑ max - min pre každú zložku R, G, B
+```
+
+**Pravidlá pri výbere farieb v GUI**
+---
+- **Používaj málo farieb** – menej je často viac.
+- **Vyhýbaj sa agresívnym kombináciám** – napr. červená a modrá vedľa seba sú únavné pre zrak.
+- **Zvýš kontrast pre zrakovo postihnutých** – pomáha využiť zvyšky farebného vnímania.
+
+<img src="./images/handicaped.jpg" alt="simulácia zhoršeného farebného vnímania" width="300">
+
+**Typy farebných schém**
+---
+- **Monochromatická** – rôzne jasy a sýtosti jednej farby. Harmonické a nenásilné.
+- **Analógová** – farby blízko seba na farebnom kruhu. Fungujú v prírode aj dizajne.
+- **Komplementárna** – farby oproti sebe na farebnom kruhu. Veľmi kontrastné, opatrne s použitím pri texte.
+
+<img src="./images/RCW.jpg" alt="farebný kruh s teplými a studenými farbami" width="500">
+
+**Teplé a studené farby**
+---
+- **Teplé** (červená, oranžová, žltá) – pôsobia aktívne, energicky.
+- **Studené** (modrá, zelená) – pôsobia upokojujúco a pasívne.
+
+
+**Farebné schémy v praxi**
+---
+- Príroda aj umenie ponúkajú inšpirácie – napr. Monet, Van Gogh, Vermeer.
+- **Príklady z výtvarného umenia** ukazujú, ako kombinovať kontrast, sýtosť a teplotu farieb.
+
+<img src="./images/similar_color.jpg" alt="blízke farby v praxi" width="600">
+
+blizke farby sa nachádzajú v malom kruhu na z velkeho HSW
+
+---
+<img src="./images/Complementary.jpg" alt="komplementárne farby" width="600">
+
+komplementárne sa nachádzajú dva kruhove vyrezy oproti sebe na HSW (2 monochromaticke farby tvoriace komplementarne farby)
+
+
+<img src="./images/Monet.jpg" alt="Monet – rozvetvená komplementárna schéma" width="600">
+
+volba farieb podla moneta 3 kruhove vyrezy tvoriace "radioaktivny piktogram" (3 monochromaticke tvoriace komplementarne farby)
+
+
+**Zásady pre návrh UI z hľadiska farieb**
+---
+- Zachovaj konzistenciu v použitých farbách naprieč aplikáciou.
+- Biela alebo veľmi svetlá farba je najvhodnejšia pre pozadie s textom.
+- Sýte farby používaj na zvýraznenie, ale šetrne.
+- Uvažuj aj kultúrne a emocionálne asociácie farieb.
+
+
 
 
 
 ---
 
-#### 🔹 Volba barev a prezentace textu
+# 🔹 1.5 Volba barev a prezentace textu
 > Kontrast, čitelnost, barvoslepost, výběr barev pro různé režimy (dark/light mode).
+
+---
+
+**Prezentácia textu – dôležité zásady**
+---
+
+- Texty musia byť vizuálne usporiadané tak, aby uľahčovali čítanie a zapamätanie obsahu.
+- Dôležité informácie zvýrazni nadpisom, vizuálnou hierarchiou alebo obrázkom.
+- Vzhľad stránky priamo ovplyvňuje, či bude čitateľ ochotný pokračovať v čítaní.
+
+<img src="./images/Text_Organization.jpg" alt="Zlé a dobré usporiadanie textu" width="400">
+
+zlé/dobré
+
+---
+
+**Organizácia textu a čitateľnosť**
+---
+
+- Vizuálna štruktúra pomáha čitateľovi vytvoriť si **mentálny model** stránky.
+- Odporúča sa rozbíjať text do kratších odstavcov, používať odrážky, deliace prvky a nadpisy.
+- Dlhé riadky znižujú čitateľnosť – ideálne je **60–70 znakov na riadok**.
+
+<img src="./images/Text_Organization2.jpg" alt="Vnímanie dlhých riadkov" width="400">
+
+zlé/dobré
+
+---
+
+**Sadzba textu a zarovnanie**
+---
+
+- **Obojstranné zarovnanie** (justifikácia) vytvára tzv. „rieky“ – vizuálne prázdne pásy, ktoré zhoršujú čitateľnosť, najmä pre dyslektikov.
+- **Zarovnanie naľavo** je preferované – lepšie sa sleduje, menší vizuálny stres.
+- Príliš dlhé alebo zložité vety znižujú zrozumiteľnosť. Krátke, jasné vety sú vhodnejšie.
+
+<img src="./images/Text_Organization3.jpg" alt="obojstranne zarovnanie" width="300">
+<img src="./images/Text_Organization4.jpg" alt="zarovnanie na lavo a skratenie riadkov" width="300">
+
+zlé/dobré
+
+
+
+---
+
+**Výber fontov a štýlu písma**
+---
+
+- Používaj max. 2 fonty a 3 veľkosti písma.
+- Kurzíva a tučné písmo len výnimočne – sú horšie čitateľné.
+- NEpoužívaj celé slová veľkými písmenami (napr. NADPISY).
+- Nezabudni na antialiasing pre malé písmo – znižuje „zúbky“.
+- **Bezpatkové fonty (sans-serif)** sú na obrazovke čitateľnejšie ako klasické knižné (serif).
+
+<img src="./images/Fonts.jpg" alt="Výber fontu a jeho čitateľnosť" width="600">
+
+---
+
+**Pozadie a kontrast**
+---
+
+- Vhodné pozadie je kľúčové – najlepšia je **biela alebo veľmi svetlá farba**.
+- Kontrast písma voči pozadiu musí byť dostatočný.
+- W3C odporúča:
+  - **Brightness difference > 125**
+  - **Color difference > 500**
+
+```plaintext
+Brightness = (299×R + 587×G + 114×B)/1000
+Color Difference = ∑ max - min pre R, G, B
+```
+
+<img src="./images/Font_bg.jpg" alt="Pozadie a čitateľnosť textu" width="800">
+
+---
+
+**Dostupnosť pre zrakovo postihnutých**
+---
+
+- Približne **8 % populácie má poruchy farebného videnia**.
+- Riešenie: **zvýšiť farebný kontrast** a zamedziť použitiu červeno-zelených kombinácií.
+- Dôležité je testovať aj tzv. **dark mode** aj **light mode** – každý režim má iné požiadavky na kontrast.
+
+<img src="./images/Handicaped2.jpg" alt="Simulácia porúch farebného videnia" width="500">
+
+---
+
+**Zhrnutie pre návrh textovej prezentácie v GUI**
+---
+
+- Vždy myslieť na **konzistentnú štruktúru a hierarchiu**.
+- Zohľadniť fyziológiu zraku a schopnosť čítania z obrazovky.
+- Vyhýbaj sa čisto dizajnérskym rozhodnutiam – priorita je **čitateľnosť**.
+- Dbaj na rozdiely medzi výstupom na papier a obrazovku – DPI, fonty, štýly.
+
+
 
 
 ---
