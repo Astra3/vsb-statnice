@@ -428,6 +428,36 @@ Color Difference = ∑ max - min pre R, G, B
 
 ### 📝 Vypracovanie:
 
+# 🔹 2.1 Realizace jednotlivých kroků řetězce
+1. Vstupné dáta (data) - Obsahujú súradnice vrcholov, normály, textúrovacie súradnice a iné atribúty. Data sú uložené vo vektoroch.
+
+2. Vertex Shader - Transformuje jednotlivé vrcholy (aplikuje maticu model-view-projection na gl_Position), Môže meniť ďalšie atribúty ako farbu alebo textúrovacie súradnice. nepozná súradnice susedného vrcholu. **výstup gl_position**. homogenny súradný systém.
+
+3. (Voliteľne) Tesselation Shader - Rozdeľuje primitíva (napr. trojuholníky) na jemnejšiu sieť pre detailnejšie vykreslenie.
+
+4. (Voliteľne) Geometry Shader - Pracuje s celými primitívami (napr. trojuholníkmi) a môže generovať nové vrcholy alebo meniť geometriu.
+
+5. Clipping - Odstraňuje časti, ktoré sú mimo zobrazovaného priestoru (view frustum).
+
+6. Rasterizácia - Konvertuje geometriu (vektory) na fragmenty (pixely) – každý pixel reprezentuje potenciálne viditeľný bod na obrazovke.
+👉 Zohľadňuje interpoláciu atribútov ako farba alebo textúrovacie súradnice.
+
+7. Fragment Shader - Počíta farbu a ďalšie atribúty každého fragmentu (napr. hĺbku, svetlo, textúru, hmlu). pre textúry sa používajú texturovacie jednotky.
+
+   ❗ Jeden pixel môže vzniknúť z viacerých fragmentov napr. pri **multisampling antialiasingu (MSAA)**.
+
+8. Framebuffer - Výstupné pixely sa zapisujú do framebuffera, ktorý sa následne zobrazí na obrazovke.
+
+
+**VBO vs VAO vs IBO**
+---
+
+VBO - Pole s dátami (súradnice, normály, textúrovacie súradnice).
+
+VAO - Ukladá konfiguráciu, ako sa majú VBO čítať (layout atribútov).
+
+IBO - Ukladá indexy vrcholov, aby sa rovnaké vrcholy nemuseli duplikovať (optimalizácia kreslenia).
+
 
 
 ---
