@@ -458,6 +458,132 @@ VAO - Ukladá konfiguráciu, ako sa majú VBO čítať (layout atribútov).
 
 IBO - Ukladá indexy vrcholov, aby sa rovnaké vrcholy nemuseli duplikovať (optimalizácia kreslenia).
 
+# 🔹 2.2 Modelovací a zobrazovací transformace
+
+**Skalár** je veličina, která je definována pouze svou velikostí
+
+**Bod** – základní bezrozměrný útvar, který reprezentujeme v prostoru pomocí trojice reálných čísel A = [x, y, z]. Tyto souřadnice udávají polohu v konkrétní souřadné soustavě. V různých souřadných soustavách může mít bod jiné souřadnice.
+
+**Vektor** reprezentuje zjednodušeně pohyb z jednoho bodu do druhého (ve fyzice třeba síla a skládání sil).
+Souřadnice vektoru tvoří uspořádaná n-tice čísel (složky vektoru).
+Vektor značíme: 𝑢⃗ = (x, y, z).
+
+ - Má velikost i směr;
+
+ - nemá pozici;
+
+ - definujeme: 𝑢⃗ = B − A;
+
+ - „jdi deset metrů na jih“.
+
+**Transformace** je zobrazení, které každému bodu A přiřadí jeho obraz, kterým je bod A′. A′ = T * A
+
+ V euklidovské geometrii je **afinní transformace** (afinita) taková geometrická transformace, která zachovává linie a rovnoběžnost (ale ne nutně vzdálenosti a úhly). v grafike sa používajú transformácie afinitné (majú homogénnu zložku). umožňujú otáčanie, škálovanie, zrkadlenie aj posun (transláciu)
+
+**Kartézský souřadný systém** osy jsou na sebe navzájem kolmé, se stejným měřítkem.
+
+
+
+**Posunutie (Translácia)**
+---
+
+Translácia **T(𝑑⃗ )** posúva bod *A[x, y]* o vzdialenosť *dₓ* a *dᵧ* na príslušných osiach.  
+Vektor *𝑑⃗ = [dₓ, dᵧ]* sa sčíta so súradnicami bodu *A*.
+
+```
+Rovnice:
+*x′ = x + dₓ*  
+*y′ = y + dᵧ*
+
+Vektorovo:
+*A′ = A + 𝑑⃗*
+
+
+Matematicky:
+[ x′ ]   = [ x ] + [ dₓ ]  
+[ y′ ]     [ y ]   [ dᵧ ]
+
+Homogénna matica:
+[ x′ ]   = [ 1  0  dₓ ]   [ x ]  
+[ y′ ]     [ 0  1  dᵧ ] * [ y ]  
+[  1 ]     [ 0  0   1 ]   [ 1 ]
+
+Príklad modelovej matice:
+Pre dₓ = 2, dᵧ = -1:
+
+[ 1  0   2 ]  
+[ 0  1  -1 ]  
+[ 0  0   1 ]
+
+```
+
+
+**Zmena mierky (Scaling)**
+---
+
+Škálovanie **S(𝑠⃗ )** mení veľkosť objektu nezávisle v jednotlivých osiach.  
+Mierka sa nastavuje vynásobením každej súradnice faktorom *sₓ* alebo *sᵧ*.
+
+```
+Rovnice:
+x′ = sₓ × x
+y′ = sᵧ × y
+
+Vektorovo:
+A′ = 𝑠⃗ A
+
+Matematicky:
+[ x′ ] = [ sₓ 0 ] [ x ]
+[ y′ ]   [ 0 sᵧ ] [ y ]
+
+Homogénna matica:
+[ x′ ] = [ sₓ 0 0 ]   [ x ]
+[ y′ ]   [ 0 sᵧ 0 ] * [ y ]
+[ 1  ]   [ 0  0 1 ]   [ 1 ]
+
+Príklad modelovej matice:
+Pre sₓ = 2, sᵧ = 0.5:
+
+[ 2 0   0 ]
+[ 0 0.5 0 ]
+[ 0 0   1 ]
+```
+
+---
+
+**Rotácia (Rotačná transformácia)**
+---
+
+Rotácia **R(α)** otáča bod *A[x, y]* o uhol *α* okolo počiatku súradnej sústavy.  
+Uhol *α* môže byť orientovaný **v smere hodinových ručičiek (CW)** alebo **proti smeru (CCW)**.
+
+```
+Rovnice (CCW):
+x′ = x × cos(α) − y × sin(α)
+y′ = x × sin(α) + y × cos(α)
+
+Matematicky:
+[ x′ ] = [ cos(α) −sin(α) ] [ x ]
+[ y′ ]   [ sin(α)  cos(α)  ] [ y ]
+
+Homogénna matica:
+[ x′ ] = [ cos(α) −sin(α) 0 ]   [ x ]
+[ y′ ]   [ sin(α)  cos(α) 0 ] * [ y ]
+[ 1  ]   [   0       0    1 ]   [ 1 ]
+
+Príklad modelovej matice:
+Pre α = 90° (π/2), teda CCW:
+
+cos(π/2) = 0
+sin(π/2) = 1
+
+[ 0 -1  0 ]
+[ 1  0  0 ]
+[ 0  0  1 ]
+```
+
+
+
 
 
 ---
