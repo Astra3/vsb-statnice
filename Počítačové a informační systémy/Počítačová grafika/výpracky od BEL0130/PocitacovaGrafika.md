@@ -650,6 +650,22 @@ Okrem Z-bufferu a Malířovho algoritmu existujú aj ďalšie metódy ako naprí
 **Globálne metódy** – ako ray tracing alebo radiosity, ktoré riešia viditeľnosť a osvetlenie spoločne (napr. cez sledovanie lúčov alebo simuláciu svetelného toku).
 
 
+# 🔹 2.5 Identifikace těles
+
+Na identifikaci těles ve 3D scéně se může využít Stencil buffer, což je rozšíření depth bufferu (z-bufferu).
+Pomocí stencil bufferu můžeme při vykreslování každému objektu přiřadit unikátní hodnotu (např. ID) a uložit ji do stencil bufferu.
+Při kliknutí do obrazu se následně přečte hodnota v daném pixelu a tím zjistíme, které těleso bylo vybráno.
+V OpenGL se aktivuje pomocí glEnable(GL_STENCIL_TEST) a nastaví chování přes glStencilOp a glStencilFunc.
+Tato metoda je efektivní a často používaná v editorech, hrách alebo výberových nástrojoch.
+
+**stencil buffer**
+---
+
+je dodatočný buffer, ktorý uchováva hodnoty pre každý pixel, zvyčajne 8-bitové (0–255).
+Používa sa na maskovanie oblastí, výber objektov, odrazy, zrkadlenie, tieňovanie či obmedzenie kreslenia len na určité časti obrazu.
+Pri identifikácii sa do stencil bufferu zapisuje napr. ID objektu pri jeho kreslení. Následne sa pri interakcii (napr. kliknutí) číta hodnota zo stencil bufferu a tým sa určí, ktorý objekt sa zasiahol.
+Stencil test umožňuje ovládať, či sa má fragment vykresliť na základe porovnania hodnoty v buffere s referenčnou hodnotou.
+
 ---
 
 ## 📐 3. Geometrické modelování
