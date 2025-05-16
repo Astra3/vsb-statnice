@@ -737,7 +737,81 @@ $(x, y, z) = \left( \frac{x}{w}, \frac{y}{w}, \frac{z}{w} \right)$
 Projektivní transformace zahrnují všechny afinní transformace + navíc umožňují perspektivní zkreslení.  
 Používají se zejména při simulaci kamery a promítání 3D scény na 2D obrazovku.
 
+**Typy promítání**
+---
 
+Promítání je převod 3D scény na 2D obraz, obvykle pomocí promítacích paprsků dopadajících na promítací rovinu (průmětnu).  
+V počítačové grafice se nejprve definují objekty a pak zvolená promítací metoda určí, jak budou zobrazeny.  
+Rozlišujeme dva základní typy promítání:
+
+<img src="./images/proj2.jpg" alt="Výber fontu a jeho čitateľnosť" width="400">
+
+**Rovnoběžné promítání (Parallel / Orthographic Projection)**
+---
+
+- Promítací paprsky jsou rovnoběžné a mají stejný směr.
+- Zachovává rovnoběžnost, tvary a úhly (v pravouhlé verzi).
+- Dělí se na:
+  - **Pravoúhlé promítání** – paprsky kolmé na průmětnu (např. nárys, půdorys, bokorys).
+  - **Kosoúhlé promítání** – paprsky šikmé vůči průmětně.
+
+<img src="./images/Ortho.jpg" alt="Výber fontu a jeho čitateľnosť" width="400">
+
+<img src="./images/Ortho2.jpg" alt="Výber fontu a jeho čitateľnosť" width="500">
+
+**Středové promítání (Perspective Projection)**
+---
+
+- Promítací paprsky vycházejí ze společného bodu (středu promítání, např. kamera nebo oko).
+- Vzniká zmenšování vzdálených objektů, rovnoběžné přímky se sbíhají do bodu v dálce.
+- Odpovídá realistickému vnímání scény člověkem.
+
+Promítání je úzce spojeno s afinním a projektivním prostorem:
+- **Rovnoběžné promítání** využívá afinní prostor.
+- **Perspektivní promítání** odpovídá projektivnímu prostoru.
+
+<img src="./images/perspective.jpg" alt="Výber fontu a jeho čitateľnosť" width="400">
+
+
+# 🔹 3.2 Popis těles a možnosti jejich reprezentace
+
+V počítačové grafice popisujeme 3D tělesa pomocí datových struktur, které umožňují jejich efektivní zpracování a vykreslování na GPU.  
+Nejpoužívanější způsob je **polygonální (trojúhelníková) síť**, která se realizuje pomocí objektů: **VAO**, **VBO** a **IBO (EBO)**.
+
+**VAO – Vertex Array Object**
+---
+
+VAO slouží jako hlavní „obal“, který uchovává informace o tom, **jaké buffery** (VBO/IBO) jsou vázané a **jak se mají data interpretovat** – např. jaké atributy má vertex (pozice, barva, normála, texturovací souřadnice) a kde se v paměti nachází.  
+Pri vykreslení stačí aktivovať VAO – GPU z neho vie, aké dáta a aký formát sa použije.
+
+**VBO – Vertex Buffer Object**
+---
+
+VBO obsahuje **pole vertexových dat** – typicky pozice vrcholů, ale často i další atributy (normály, barvy, texturovací souřadnice).  
+Dáta sú uložené **sekvenčně v paměti GPU**, čo umožňuje veľmi rýchle spracovanie. Každý vertex môže obsahovať napríklad:
+- vec3 pozice (x, y, z),
+- vec3 normála (nx, ny, nz),
+- vec4 barva (r, g, b, a),
+- vec2 texCoord (u, v).
+
+**IBO / EBO – Index Buffer Object**
+---
+
+IBO (Index Buffer Object) uchovává **indexy vrcholů**, které definují trojúhelníky.  
+Namiesto opakovaného zadávania rovnakých vrcholov (napr. na zdieľaných hranách) stačí uložiť odkaz (index) – to šetrí pamäť aj zvyšuje výkon.  
+Príklad: trojúhelník je určený indexy [0, 1, 2], ktoré odkazujú na 3 vrcholy vo VBO.
+
+**Interpolace barvy a textury**
+---
+
+Pri rasterizácii sa farby a textúry na fragmenty **interpolují** z hodnôt definovaných vo vrcholoch.  
+- Farba definovaná na vrcholoch sa lineárne interpoluje medzi vrcholmi trojúhelníka.
+- Texturovacie súradnice (u, v) sa rovnako interpolujú a určujú, **ktorý pixel z textúry sa použije** na daný fragment.
+
+GPU teda automaticky:
+- interpoluje hodnoty cez barycentrické súradnice,
+- podľa toho vykresľuje farby alebo textúry,
+- aplikuje prípadné osvetľovacie výpočty (napr. Phong).
 
 
 ---
