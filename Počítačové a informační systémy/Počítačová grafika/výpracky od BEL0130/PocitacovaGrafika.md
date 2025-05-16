@@ -666,6 +666,32 @@ Používa sa na maskovanie oblastí, výber objektov, odrazy, zrkadlenie, tieňo
 Pri identifikácii sa do stencil bufferu zapisuje napr. ID objektu pri jeho kreslení. Následne sa pri interakcii (napr. kliknutí) číta hodnota zo stencil bufferu a tým sa určí, ktorý objekt sa zasiahol.
 Stencil test umožňuje ovládať, či sa má fragment vykresliť na základe porovnania hodnoty v buffere s referenčnou hodnotou.
 
+
+# 🔹 2.6 Stručná charakteristika OpenGL a jazyka GLSL
+
+OpenGL (Open Graphics Library) je multiplatformné grafické API určené pre prácu s grafickou kartou, zamerané výhradne na vykresľovanie.
+Bolo vytvorené firmou Silicon Graphics a prvýkrát vydané v roku 1992. Od roku 2006 je spravované organizáciou Khronos Group.
+OpenGL nie je programovací jazyk, ale rozhranie (API), ktoré poskytuje viac ako 120 grafických funkcií.
+Umožňuje vývoj hardvérovo akcelerovaných 2D/3D aplikácií naprieč operačnými systémami.
+Aktuálna verzia je OpenGL 4.6 (k 31. 7. 2017), no OpenGL nedokáže efektívne využívať najnovší výkon moderných GPU.
+
+**Ďalšie grafické API**
+---
+
+ - Vulkan
+ - DirectX
+
+**GLSL – OpenGL Shading Language**
+---
+
+GLSL (OpenGL Shading Language) je špecializovaný programovací jazyk pre písanie shaderov (vertex, fragment, geometry…).
+Je súčasťou OpenGL a umožňuje bežať vlastné výpočty priamo na GPU.
+GLSL je podobný C, má vlastnú syntax a je navrhnutý na spracovanie paralelných výpočtov nad množstvom vertexov a fragmentov.
+Umožňuje implementovať osvetlenie, textúrovanie, animácie a ďalšie grafické efekty priamo na grafickej karte.
+
+
+
+
 ---
 
 ## 📐 3. Geometrické modelování
