@@ -483,39 +483,125 @@ Vektor značíme: 𝑢⃗ = (x, y, z).
 **Kartézský souřadný systém** osy jsou na sebe navzájem kolmé, se stejným měřítkem.
 
 
+**Obecné skladanie afinitnych tranformacií** $X^n = A_n * (... (A_2 * (A_1 * X + 𝑑⃗_1) + 𝑑⃗_2) ...) + 𝑑⃗_n$
+
+
 
 **Posunutie (Translácia)**
 ---
 
-Translácia **T(𝑑⃗ )** posúva bod *A[x, y]* o vzdialenosť *dₓ* a *dᵧ* na príslušných osiach.  
-Vektor *𝑑⃗ = [dₓ, dᵧ]* sa sčíta so súradnicami bodu *A*.
-
-```
-Rovnice:
-*x′ = x + dₓ*  
-*y′ = y + dᵧ*
-
-Vektorovo:
-*A′ = A + 𝑑⃗*
+Translácia **T(𝑑⃗ )** posúva bod **A\[x, y]** o vzdialenosť **dₓ** a **dᵧ** pozdĺž príslušných osí.  
+Vektor **𝑑⃗ = [dₓ, dᵧ]** sa pripočíta k súradniciam bodu **A**.
 
 
-Matematicky:
-[ x′ ]   = [ x ] + [ dₓ ]  
-[ y′ ]     [ y ]   [ dᵧ ]
 
-Homogénna matica:
-[ x′ ]   = [ 1  0  dₓ ]   [ x ]  
-[ y′ ]     [ 0  1  dᵧ ] * [ y ]  
-[  1 ]     [ 0  0   1 ]   [ 1 ]
+---
 
-Príklad modelovej matice:
-Pre dₓ = 2, dᵧ = -1:
+### Rovnice
+$$
+\begin{aligned}
+x' &= x + d_x \\
+y' &= y + d_y
+\end{aligned}
+$$
 
-[ 1  0   2 ]  
-[ 0  1  -1 ]  
-[ 0  0   1 ]
+### Vektorovo
+$$
+\mathbf A' \;=\; \mathbf A + \mathbf d
+$$
 
-```
+### Matematicky
+$$
+\begin{bmatrix}
+x'\\
+y'
+\end{bmatrix}
+=
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}
++
+\begin{bmatrix}
+d_x\\
+d_y
+\end{bmatrix}
+$$
+
+### Homogénna matica
+$$
+\begin{bmatrix}
+x'\\
+y'\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 & d_x \\
+0 & 1 & d_y \\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y\\
+1
+\end{bmatrix}
+$$
+
+### Príklad 
+$d_x = 2,\; d_y = -1$
+
+
+$$
+\begin{bmatrix}
+1 & 0 & 2 \\
+0 & 1 & -1 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+Nech pôvodný bod  
+$$
+A = \begin{bmatrix}
+1 \\[2pt]
+1 \\[2pt]
+1
+\end{bmatrix}
+$$
+
+Translačná matica  
+$$
+T = \begin{bmatrix}
+1 & 0 & 2 \\
+0 & 1 & -1 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+Výpočet \(A' = T\,A\)  
+$$
+A' =
+\begin{bmatrix}
+1 & 0 & 2 \\
+0 & 1 & -1 \\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+1 \\[2pt]
+1 \\[2pt]
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+3 \\[2pt]
+0 \\[2pt]
+1
+\end{bmatrix}
+$$
+
+Bod *(1,1)* sa po translácii zmení na *(3,0)*.
+
+
 
 
 **Zmena mierky (Scaling)**
@@ -524,30 +610,117 @@ Pre dₓ = 2, dᵧ = -1:
 Škálovanie **S(𝑠⃗ )** mení veľkosť objektu nezávisle v jednotlivých osiach.  
 Mierka sa nastavuje vynásobením každej súradnice faktorom *sₓ* alebo *sᵧ*.
 
-```
-Rovnice:
-x′ = sₓ × x
-y′ = sᵧ × y
 
-Vektorovo:
-A′ = 𝑠⃗ A
+### Rovnice:
+$$
+\begin{aligned}
+x' &= s_x \cdot x \\
+y' &= s_y \cdot y
+\end{aligned}
+$$
 
-Matematicky:
-[ x′ ] = [ sₓ 0 ] [ x ]
-[ y′ ]   [ 0 sᵧ ] [ y ]
+### Vektorovo:
 
-Homogénna matica:
-[ x′ ] = [ sₓ 0 0 ]   [ x ]
-[ y′ ]   [ 0 sᵧ 0 ] * [ y ]
-[ 1  ]   [ 0  0 1 ]   [ 1 ]
 
-Príklad modelovej matice:
-Pre sₓ = 2, sᵧ = 0.5:
+$$
+\mathbf A' \;=\; \mathbf s \;\cdot\; \mathbf A
+$$
 
-[ 2 0   0 ]
-[ 0 0.5 0 ]
-[ 0 0   1 ]
-```
+
+### Matematicky
+$$
+\begin{bmatrix}
+x'\\
+y'
+\end{bmatrix}
+=
+\begin{bmatrix}
+s_x & 0\\
+0   & s_y
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}
+$$
+
+
+### Homogénna matica
+$$
+\begin{bmatrix}
+x'\\
+y'\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+s_x & 0 & 0\\
+0   & s_y & 0\\
+0   & 0   & 1
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y\\
+1
+\end{bmatrix}
+$$
+
+
+
+### Príklad modelovej matice:
+$s_x = 2,\; s_y = 0.5$
+$$
+\begin{bmatrix}
+2 & 0   & 0 \\
+0 & 0.5 & 0 \\
+0 & 0   & 1
+\end{bmatrix}
+$$
+
+
+Nech pôvodný bod *x,y,w*  
+  
+$$
+A = \begin{bmatrix}
+1 \\[2pt]
+1 \\[2pt]
+1
+\end{bmatrix}
+$$
+
+Škálovacia matica  
+$$
+S = \begin{bmatrix}
+2 & 0   & 0 \\
+0 & 0.5 & 0 \\
+0 & 0   & 1
+\end{bmatrix}
+$$
+
+Výpočet \(A' = S\,A\)  
+$$
+A' =
+\begin{bmatrix}
+2 & 0   & 0 \\
+0 & 0.5 & 0 \\
+0 & 0   & 1
+\end{bmatrix}
+\begin{bmatrix}
+1 \\[2pt]
+1 \\[2pt]
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\[2pt]
+0.5 \\[2pt]
+1
+\end{bmatrix}
+$$
+
+Bod \((1,\,1)\) sa po škálovaní zmení na **\((2,\,0.5)\)**.
+
+
 
 ---
 
@@ -557,30 +730,333 @@ Pre sₓ = 2, sᵧ = 0.5:
 Rotácia **R(α)** otáča bod *A[x, y]* o uhol *α* okolo počiatku súradnej sústavy.  
 Uhol *α* môže byť orientovaný **v smere hodinových ručičiek (CW)** alebo **proti smeru (CCW)**.
 
-```
-Rovnice (CCW):
-x′ = x × cos(α) − y × sin(α)
-y′ = x × sin(α) + y × cos(α)
+### Rovnice (CCW)
+$$
+\begin{aligned}
+x' &= x\cos\alpha \;-\; y\sin\alpha \\
+y' &= x\sin\alpha \;+\; y\cos\alpha
+\end{aligned}
+$$
 
-Matematicky:
-[ x′ ] = [ cos(α) −sin(α) ] [ x ]
-[ y′ ]   [ sin(α)  cos(α)  ] [ y ]
+### Matematicky
+$$
+\begin{bmatrix}
+x'\\
+y'
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos\alpha & -\sin\alpha\\
+\sin\alpha &  \cos\alpha
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}
+$$
 
-Homogénna matica:
-[ x′ ] = [ cos(α) −sin(α) 0 ]   [ x ]
-[ y′ ]   [ sin(α)  cos(α) 0 ] * [ y ]
-[ 1  ]   [   0       0    1 ]   [ 1 ]
+### Homogénna matica
+$$
+\begin{bmatrix}
+x'\\
+y'\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos\alpha & -\sin\alpha & 0\\
+\sin\alpha &  \cos\alpha & 0\\
+0          &  0          & 1
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y\\
+1
+\end{bmatrix}
+$$
 
-Príklad modelovej matice:
-Pre α = 90° (π/2), teda CCW:
 
-cos(π/2) = 0
-sin(π/2) = 1
+### Príklad: (α = 90° = π/2)
 
-[ 0 -1  0 ]
-[ 1  0  0 ]
-[ 0  0  1 ]
-```
+$cos(π/2)=0, sin(π/2)=1$
+
+Štandardná rotačná matica  
+$$
+R_{90} =
+\begin{bmatrix}
+0 & -1 & 0\\
+1 &  \phantom{-}0 & 0\\
+0 &  0 & 1
+\end{bmatrix}
+$$
+
+#### Ukážkový výpočet  
+
+Pôvodný bod  
+$$
+A = \begin{bmatrix}
+1\\[2pt]
+0\\[2pt]
+1
+\end{bmatrix}
+$$
+
+
+Výsledok $(A' = R_{90} A)$  
+$$
+A' =
+\begin{bmatrix}
+0 & -1 & 0\\
+1 &  0 & 0\\
+0 &  0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+1\\[2pt]
+0\\[2pt]
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\[2pt]
+1\\[2pt]
+1
+\end{bmatrix}
+$$
+
+Bod *(1,0)* sa po otočení o 90° (CCW) zmení na *(0,1)*.
+
+**Pohľadová transformácia (View)**
+---
+
+Transformácia **V(c, t, u)** prenáša body zo svetového priestoru do priestoru kamery.  
+Premenné:  
+
+$\mathbf c = (c_x,c_y,c_z)$ … pozícia kamery  
+$\mathbf t = (t_x,t_y,t_z)$ … bod, na ktorý sa kamera pozerá  
+$\mathbf u = (u_x,u_y,u_z)$ … globálny up-vektor  
+
+### Rovnice&nbsp;(smerové vektory kamery)
+$$
+\begin{aligned}
+\mathbf z &= \operatorname{normalize}(\mathbf c - \mathbf t) \\[4pt]
+\mathbf x &= \operatorname{normalize}(\mathbf u \times \mathbf z) \\[4pt]
+\mathbf y &= \mathbf z \times \mathbf x
+\end{aligned}
+$$
+
+### Matematicky
+$$
+\begin{bmatrix}
+x_c \\[2pt]
+y_c \\[2pt]
+z_c \\[2pt]
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+x_x & x_y & x_z & -\mathbf x \!\cdot\! \mathbf c \\[4pt]
+y_x & y_y & y_z & -\mathbf y \!\cdot\! \mathbf c \\[4pt]
+z_x & z_y & z_z & -\mathbf z \!\cdot\! \mathbf c \\[4pt]
+0   & 0   & 0   & 1
+\end{bmatrix}
+\begin{bmatrix}
+x_w \\[2pt]
+y_w \\[2pt]
+z_w \\[2pt]
+1
+\end{bmatrix}
+$$
+
+### Homogénna matica (View)
+$$
+V =
+\begin{bmatrix}
+x_x & x_y & x_z & -\mathbf x \!\cdot\! \mathbf c \\
+y_x & y_y & y_z & -\mathbf y \!\cdot\! \mathbf c \\
+z_x & z_y & z_z & -\mathbf z \!\cdot\! \mathbf c \\
+0   & 0   & 0   & 1
+\end{bmatrix}
+$$
+
+
+
+### Príklad 
+$(c = (0,0,5)$, $t = (0,0,0)$, $u = (0,1,0))$
+
+z toho vypočítame
+
+$(
+\mathbf x = (1,0,0),\quad
+\mathbf y = (0,1,0),\quad
+\mathbf z = (0,0,1)
+)$
+
+
+Štandardná pohľadová matica  
+$$
+V =
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & -5 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+#### Ukážkový výpočet  
+
+Pôvodný bod  
+$$
+P = \begin{bmatrix}
+0\\[2pt]
+0\\[2pt]
+0\\[2pt]
+1
+\end{bmatrix}
+$$
+
+Výsledok (P' = V * P)  
+$$
+P' =
+\begin{bmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & -5\\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+0\\[2pt]
+0\\[2pt]
+0\\[2pt]
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\[2pt]
+0\\[2pt]
+-5\\[2pt]
+1
+\end{bmatrix}
+$$
+
+Bod $(0,0,0)$ sa po view transformácii zmení na kamerové súradnice $(0,0,-5)$. je teda 5 jednotiek pred kamerou (negatívny smer osi $z$).
+
+
+**Perspektívne premietanie (Perspective Projection)**
+---
+
+Premietacia transformácia *P(d)* zobrazuje 3-D bod $A [x, y, z]$ na rovinu  
+$z = d$ tak, že všetky premietacie lúče prechádzajú **stredom projekcie** (kamery) v počiatku.  
+Čím je bod ďalej (väčšie $z$), tým menší obrázok vznikne – vzniká **lineárna perspektíva**.
+
+> *Ortografické premietanie* je špeciálny prípad s $d = \infty$: lúče sú rovnobežné a vrchné vzorce sa zredukujú na $x' = x, y' = y$.
+
+
+### Rovnice
+$$
+\begin{aligned}
+x' &= \frac{d}{z}\,x \\
+y' &= \frac{d}{z}\,y
+\end{aligned}
+$$
+( \(d\)  = vzdialenosť projekčnej roviny od kamery )
+
+### Matematicky
+$$
+\begin{bmatrix}
+x'\\
+y'
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{d}{z} & 0          & 0\\
+0           & \frac{d}{z}& 0
+\end{bmatrix}
+\!
+\begin{bmatrix}
+x\\
+y\\
+1
+\end{bmatrix}
+$$
+
+### Homogénna matica
+
+
+$$\underbrace{\begin{bmatrix}
+x_p \\[2pt]
+y_p \\[2pt]
+z_p \\[2pt]
+w
+\end{bmatrix}}_{\text{clip-space}}
+=
+\underbrace{\begin{bmatrix}
+d & 0 & 0 & 0\\
+0 & d & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0
+\end{bmatrix}}_{P(d)}
+\begin{bmatrix}
+x\\[2pt]
+y\\[2pt]
+z\\[2pt]
+1
+\end{bmatrix}
+$$
+
+$$
+\textit{perspective-divide:}\qquad
+x'=\frac{x_p}{w},
+y'=\frac{y_p}{w}
+$$
+
+*Po vydelení $w$ sa vektor   $(x_p,y_p,z_p,w)^\mathsf T$ „zrazí“ na  
+$(x',y',1)^\mathsf T$ teda **3 × 1** (posledná zložka sa stane 1).*
+
+
+### Príklad (\(d = 2\))
+Bod  
+$$
+A =
+\begin{bmatrix}
+1\\[2pt]
+1\\[2pt]
+4\\[2pt]
+1
+\end{bmatrix}
+$$
+
+#### Výpočet \((A' = P(2)\,A)\)
+$$
+A'_\text{clip} =
+\begin{bmatrix}
+2 & 0 & 0 & 0\\
+0 & 2 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0.5 & 0
+\end{bmatrix}
+\begin{bmatrix}
+1\\[2pt]
+1\\[2pt]
+4\\[2pt]
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+2\\[2pt]
+2\\[2pt]
+4\\[2pt]
+2
+\end{bmatrix}
+\;\;\Longrightarrow\;\;
+\begin{aligned}
+x' &= 2/2 = 1,\\
+y' &= 2/2 = 1.
+\end{aligned}
+$$
+
+Bod \((1,\,1,\,4)\) sa premietne na **\((1,\,1)\)** v rovine _z = 2_;  
+rovnaký bod bližšie ku kamere (napr. \(z=1\)) by sa zobrazil ďalej od stredu, čím vzniká perspektívne „zväčšenie“ blízkych objektov.
 
 
 
