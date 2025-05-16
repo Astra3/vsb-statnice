@@ -568,6 +568,23 @@ $z = d$ tak, že všetky premietacie lúče prechádzajú **stredom projekcie** 
 <img src="./images/proj1.jpg" alt="Výber fontu a jeho čitateľnosť">
 
 
+# 🔹 2.3 Phongův osvětlovací model
+
+$$I_v = I_a \cdot r_a + \sum_{i=0}^{m} (I_di \cdot r_d \cdot cos(\alpha_i) + I_si \cdot r_s \cdot cos^h(\phi_i)) $$
+
+kde $cos^h(\phi_i))$ a $cos(\alpha_i)$ sa dá zapísať aj ako $\vec{l} \cdot \vec{n}$ a $\vec{r} \cdot \vec{v}$
+
+
+
+$\vec{l}$ - vektor od svetla
+
+$\vec{n}$ - normala povrchu
+
+$\vec{r}$ - odraz svetla
+
+$\vec{v}$ - pohlad kamery
+
+<img src="./images/phong.jpg" alt="Výber fontu a jeho čitateľnosť">
 
 ---
 
