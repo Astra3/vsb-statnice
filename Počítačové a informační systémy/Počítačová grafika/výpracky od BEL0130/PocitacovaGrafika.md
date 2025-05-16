@@ -704,6 +704,41 @@ Umožňuje implementovať osvetlenie, textúrovanie, animácie a ďalšie grafic
 
 ### 📝 Vypracovanie:
 
+# 🔹 3.1 Afinní a projektivní prostory
+
+**Afinní prostor**
+---
+
+je geometrická množina bodů, která nemá pevně daný počátek, ale je na ní definována množina vektorů umožňujících posun mezi body.  
+Umožňuje afinní transformace, které zachovávají rovnoběžnost přímek, poměry délek na přímce a kolmost (v některých případech), ale **nezachovávají absolutní délky a úhly**.  
+
+Afinní transformace zahrnují:
+- translaci (posun),
+- rotaci,
+- škálování,
+- šmyk (shear).
+
+Afinní prostor je základem pro modelování a manipulaci s objekty v 2D i 3D grafice.  
+Pro výpočty se používají **homogenní souřadnice**, které umožňují zápis všech afinních transformací pomocí jediné matice.
+
+
+**Projektivní prostor**
+---
+
+Projektivní prostor je zobecněním afinního prostoru, které umožňuje pracovat i s body v nekonečnu.  
+Používá se zejména při **perspektivním zobrazení**, kde se rovnoběžné přímky mohou protínat ve „vhledovém bodě“ – například koleje se v dálce sbíhají.  
+
+V projektivním prostoru se využívají **homogenní souřadnice** ve tvaru \((x, y, z, w)\), přičemž přechod zpět do běžného prostoru se provádí dělením:  
+
+$(x, y, z) = \left( \frac{x}{w}, \frac{y}{w}, \frac{z}{w} \right)$
+
+*(projekcia)*
+
+Projektivní transformace zahrnují všechny afinní transformace + navíc umožňují perspektivní zkreslení.  
+Používají se zejména při simulaci kamery a promítání 3D scény na 2D obrazovku.
+
+
+
 
 ---
 
