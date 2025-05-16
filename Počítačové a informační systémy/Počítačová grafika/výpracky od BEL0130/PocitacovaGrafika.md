@@ -614,6 +614,42 @@ $\vec{v}$ - pohlad kamery
 
 <img src="./images/phong.jpg" alt="Výber fontu a jeho čitateľnosť">
 
+
+# 🔹 2.4 Řešení viditelnosti
+
+**Maliruv algoritmus**
+---
+
+Ide o jednoduchý algoritmus, ktorý rieši viditeľnosť porovnávaním vzdialenosti plôch od kamery podľa ich z-ovej súradnice. Najskôr sa vykresľujú tie plochy, ktoré sú ďalej od kamery, a postupuje sa smerom k bližším.
+Ak sa plochy v rovine XY neprekrývajú, poradie kreslenia nehrá rolu. V prípade zložitých scén s prekrývajúcimi sa alebo nekonvexnými objektmi môže dôjsť k cyklickému závislému prekrytiu – potom je nutné objekty rozdeliť.
+Malířův algoritmus závisí na správnom triedení plôch, čo môže byť výpočtovo náročné a neefektívne. V praxi sa preto často nahrádza efektívnejším Z-bufferom.
+
+<img src="./images/malir.jpg" alt="Výber fontu a jeho čitateľnosť" width="800">
+
+**ZBuffer**
+---
+
+Z-buffer (paměť hloubky) je najpoužívanejší algoritmus na riešenie viditeľnosti v modernej grafike. Pre každý pixel uchováva najmenšiu (najbližšiu) hodnotu hĺbky, pričom sa vykreslí len ten fragment, ktorý je najbližšie ku kamere.
+Algoritmus je veľmi efektívny – každá plocha sa spracováva len raz, bez potreby triedenia. Výpočet je lineárny vzhľadom na počet plôch a umožňuje paralelizáciu na GPU.
+Z-buffer sa inicializuje hodnotou „nekonečno“, počas rasterizácie sa porovnávajú hodnoty hĺbky a pri menšej hodnote sa aktualizuje farebný aj hĺbkový buffer.
+Z-buffer je súčasťou frame bufferu, ktorý ďalej obsahuje aj color, stencil a accumulation buffery. V OpenGL sa používa napr. pomocou príkazov glEnable(GL_DEPTH_TEST) a glDepthFunc().
+
+<img src="./images/framebuffer.jpg" alt="Výber fontu a jeho čitateľnosť">
+
+**ostatne algoritmy**
+---
+
+Okrem Z-bufferu a Malířovho algoritmu existujú aj ďalšie metódy ako napríklad:
+
+**Back-face culling** – odstránenie zadných stien, ktoré sú natočené od kamery.
+
+**BSP (Binary Space Partitioning)** – rekurzívne rozdeľovanie scény pomocou rovín.
+
+**Occlusion culling** – odstránenie objektov úplne zakrytých inými.
+
+**Globálne metódy** – ako ray tracing alebo radiosity, ktoré riešia viditeľnosť a osvetlenie spoločne (napr. cez sledovanie lúčov alebo simuláciu svetelného toku).
+
+
 ---
 
 ## 📐 3. Geometrické modelování
