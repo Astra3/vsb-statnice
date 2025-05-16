@@ -570,7 +570,15 @@ $z = d$ tak, že všetky premietacie lúče prechádzajú **stredom projekcie** 
 
 # 🔹 2.3 Phongův osvětlovací model
 
-$$I_v = I_a \cdot r_a + \sum_{i=0}^{m} (I_di \cdot r_d \cdot cos(\alpha_i) + I_si \cdot r_s \cdot cos^h(\phi_i)) $$
+$$
+I_v =
+\underbrace{I_a \cdot r_a}_{\text{ambientná}} +
+\sum_{i=0}^{m} \left(
+  \underbrace{I_{di} \cdot r_d \cdot \cos(\alpha_i)}_{\text{difúzna}} +
+  \underbrace{I_{si} \cdot r_s \cdot \cos^h(\phi_i)}_{\text{zrkadlová}}
+\right)
+$$
+
 
 kde $cos^h(\phi_i))$ a $cos(\alpha_i)$ sa dá zapísať aj ako $\vec{l} \cdot \vec{n}$ a $\vec{r} \cdot \vec{v}$
 
