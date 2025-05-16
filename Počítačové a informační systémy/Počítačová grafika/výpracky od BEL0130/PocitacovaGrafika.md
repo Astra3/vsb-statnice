@@ -565,7 +565,7 @@ $z = d$ tak, že všetky premietacie lúče prechádzajú **stredom projekcie** 
 
 
 
-
+<img src="./images/proj1.jpg" alt="Výber fontu a jeho čitateľnosť">
 
 
 
