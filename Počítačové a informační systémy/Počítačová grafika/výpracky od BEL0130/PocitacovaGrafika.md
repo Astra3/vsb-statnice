@@ -700,7 +700,6 @@ Umožňuje implementovať osvetlenie, textúrovanie, animácie a ďalšie grafic
 - Afinní a projektivní prostory  
 - Popis těles a možnosti jejich reprezentace  
 - Základní křivky (Fergusonova kubika, Bézierova křivka)  
-- Vlastnosti a použití týchto kriviek
 
 ### 📝 Vypracovanie:
 
@@ -812,6 +811,73 @@ GPU teda automaticky:
 - interpoluje hodnoty cez barycentrické súradnice,
 - podľa toho vykresľuje farby alebo textúry,
 - aplikuje prípadné osvetľovacie výpočty (napr. Phong).
+
+
+
+# 🔹 3.3 Základní křivky (Fergusonova kubika, Bézierova křivka)
+
+Mnohé křivky používané v počítačové grafice jsou založeny na **interpolaci mezi body** pomocí parametru  $t \in [0, 1]$ .  
+Základním stavebním kamenem je **parametrické vyjádření přímky**:
+
+
+
+$$L(t) = (1 - t) \cdot A + t \cdot B$$
+
+kde:
+-  $A$  a  $B$  jsou dva body určující přímku,
+-  $t \in [0, 1]$  určuje pozici mezi nimi.
+
+Tento jednoduchý vztah tvoří základ pro konstrukci složitějších křivek jako je **Fergusonova kubika** nebo **Bézierova křivka**.
+
+
+**Fergusonova kubika**
+---
+
+Fergusonova křivka (nebo Hermitova kubika) je **interpolující křivka**, která je určena:
+- počátečním a koncovým bodem: $P_0$, $P_1$,
+- a odpovídajícími tečnými vektory: $T_0$, $T_1$ .
+- $t$ je číslo medzi interpolované medzi 0 a 1 podľa pozicie na krivke.
+
+Používá se tvar:
+$$C(t) = h_1(t) P_0 + h_2(t) P_1 + h_3(t) T_0 + h_4(t) T_1$$
+kde  $h_i(t)$  jsou tzv. Hermitovy báze (funkce 3. stupně).  
+Zajišťuje plynulé spojení mezi segmenty (např. při animacích nebo trajektoriách).
+
+**Bézierova křivka**
+---
+
+Bézierova křivka je **aproximující křivka**, definovaná množinou **řídicích bodů**.  
+- **Kvadratická Bézierova křivka**: 3 body –  $P_0$, $P_1$, $P_2$ 
+- **Kubická Bézierova křivka**: 4 body –  $P_0$, $P_1$, $P_2$, $P_3$
+
+Kubická Bézierova křivka má tvar:
+$$B(t) = (1 - t)^3 P_0 + 3(1 - t)^2 t P_1 + 3(1 - t) t^2 P_2 + t^3 P_3$$
+
+Obecná Bézierova křivka je definována  $n + 1$  řídicími body $P_0, P_1, \dots, P_n $ a má tvar:
+
+
+$$B(t) = \sum_{i=0}^{n} \binom{n}{i} (1 - t)^{n - i} t^i \cdot P_i,\quad t \in [0, 1]$$
+
+
+kde:
+-  $\binom{n}{i}$  je binomický koeficient,
+-  $P_i$  jsou řídicí body (vektory),
+-  $t$  je parametr, který se pohybuje od 0 do 1.
+-  $i$ je iteracia sumy
+-  $n$ je počet riadiacich bodov -1
+
+Tento zápis využívá **Bernsteinovy polynomy**:
+
+$$B_i^n(t) = \binom{n}{i} (1 - t)^{n - i} t^i$$
+
+
+Celá křivka je tedy lineární kombinací bodů  $P_i$  váženou podle  $B_i^n(t)$ .
+
+Vlastnosti:
+- Křivka vždy leží **uvnitř konvexního obalu** řídicích bodů.
+- První a poslední bod jsou **na křivce**, zbylé ovlivňují její tvar.
+- Křivka je **C¹ spojitá** a snadno řetězitelná.
+- Široce využívaná v CAD, vektorové grafice (SVG), animacích a fontoch (napr. TrueType).
 
 
 ---
