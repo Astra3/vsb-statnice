@@ -564,33 +564,33 @@ Tento dokument obsahuje primárně otázky (u některých i stručné odpovědi)
    * Rozpoznať, kedy sa ktorá stratégia hodí.
 
 10. **Teorie grafů (definice)**
-   * Orientované vs. neorientované, súvislosť, mosty, klika.
-   * Stromy, kostry, acyklickosť.
-   * Základné pojmy a ich vzťahy.
+    * Orientované vs. neorientované, súvislosť, mosty, klika.
+    * Stromy, kostry, acyklickosť.
+    * Základné pojmy a ich vzťahy.
 
 11. **Složitost algoritmů**
-   * Teoretické porovnanie – triedenie, vyhľadávanie, grafy.
-   * Význam asymptotickej analýzy.
-   * Praktický dopad na výber algoritmu.
+    * Teoretické porovnanie – triedenie, vyhľadávanie, grafy.
+    * Význam asymptotickej analýzy.
+    * Praktický dopad na výber algoritmu.
 
 12. **Transformuj a panuj – Gaussova eliminace** *(Dvorský)*
-   * Riešenie lineárnych rovníc.
-   * Matematický postup + zložitosť.
-   * Možné numerické problémy.
+    * Riešenie lineárnych rovníc.
+    * Matematický postup + zložitosť.
+    * Možné numerické problémy.
 
 13. **Hladové algoritmy, kostra grafu** *(Dvorský)*
-   * Greedy princíp – vždy najlepší lokálny krok.
-   * Príklad: Kruskal, Prim – kostra grafu.
-   * Výhody/nevýhody greedy prístupu.
+    * Greedy princíp – vždy najlepší lokálny krok.
+    * Príklad: Kruskal, Prim – kostra grafu.
+    * Výhody/nevýhody greedy prístupu.
 
 14. **Sekvenční, binární vyhledávání**
-   * Pseudokód oboch, časová zložitosť.
-   * Kedy sa ktorý hodí – predpoklad zoradenia.
+    * Pseudokód oboch, časová zložitosť.
+    * Kedy sa ktorý hodí – predpoklad zoradenia.
 
 15. **Základní lineární datové struktury** *(Kudělka)*
-   * Seznam (linked list), zásobník (stack), fronta (queue).
-   * Operácie: vloženie, výmaz, vyhľadanie.
-   * Implementácia: pole vs. ukazatele.
+    * Seznam (linked list), zásobník (stack), fronta (queue).
+    * Operácie: vloženie, výmaz, vyhľadanie.
+    * Implementácia: pole vs. ukazatele.
 
 ### ZSU
 1. **Clustering, K-means, hierarchické** *(Janoušek, Vašinek)*
